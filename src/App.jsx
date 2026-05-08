@@ -13,7 +13,7 @@ const DEFAULT_PRODUCTS = [
 
 const i18n = {
   it: {
-    catalogue: 'Prodotti', admin: 'Area Admin', login: 'Entra', logout: 'Esci', password: 'Password admin', passHint: 'Password demo: admin',
+    pdfCatalogue: 'Catalogo', catalogue: 'Prodotti', admin: 'Area Admin', login: 'Entra', logout: 'Esci', password: 'Password admin', passHint: 'Password demo: admin',
     title: 'Cavi elettrici disponibili a magazzino', subtitle: 'Catalogo ITALICAB con prezzi visibili, schede tecniche e prodotti disponibili.',
     search: 'Cerca codice o descrizione...', all: 'Tutte', available: 'Disponibile', price: 'Prezzo', datasheet: 'Scheda tecnica', noDatasheet: 'Nessuna scheda', request: 'Richiedi informazioni',
     code: 'Codice', category: 'Categoria', descIt: 'Descrizione IT', descEn: 'Descrizione EN', save: 'Salva prodotto', update: 'Aggiorna prodotto', cancel: 'Annulla', edit: 'Modifica', del: 'Elimina', hide: 'Nascondi', show: 'Mostra',
@@ -21,7 +21,7 @@ const i18n = {
     note: 'Versione semplice senza database: i dati restano nel browser e possono essere esportati/importati con JSON. Per PDF permanenti, carica i file nella cartella public/datasheets del progetto.'
   },
   en: {
-    catalogue: 'Products', admin: 'Admin Area', login: 'Login', logout: 'Logout', password: 'Admin password', passHint: 'Demo password: admin',
+    pdfCatalogue: 'Catalogue', catalogue: 'Products', admin: 'Admin Area', login: 'Login', logout: 'Logout', password: 'Admin password', passHint: 'Demo password: admin',
     title: 'Electrical cables available from stock', subtitle: 'ITALICAB catalogue with visible prices, datasheets and available products.',
     search: 'Search code or description...', all: 'All', available: 'Available', price: 'Price', datasheet: 'Datasheet', noDatasheet: 'No datasheet', request: 'Request information',
     code: 'Code', category: 'Category', descIt: 'Description IT', descEn: 'Description EN', save: 'Save product', update: 'Update product', cancel: 'Cancel', edit: 'Edit', del: 'Delete', hide: 'Hide', show: 'Show',
