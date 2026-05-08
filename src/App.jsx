@@ -108,7 +108,7 @@ export default function App() {
         <div className="contact"><b>ITALICAB</b><span>info@italicab.it</span><span>Tel. +39 030 6365625</span><span>Fax +39 030 6364819</span><span>Corso Cavour, 31 - 25121 Brescia</span></div>
       </section>
       <section className="filters"><input placeholder={t.search} value={query} onChange={e => setQuery(e.target.value)} /><select value={cat} onChange={e => setCat(e.target.value)}><option value="all">{t.all}</option>{categories.map(c => <option key={c} value={c}>{c}</option>)}</select></section>
-      <section className="grid">{filtered.map(p => <article className="card" key={p.id}><div className="tag">{p.category}</div><h3>{p.code}</h3><p>{lang === 'it' ? p.description_it : p.description_en}</p><div className="row"><span>{t.available}</span><b>{currency(p.price)}</b></div>{p.datasheet ? <a className="outline" href={datasheetHref(p.datasheet)} target="_blank">{t.datasheet}</a> : <button className="outline" disabled>{t.noDatasheet}</button>}</article>)}</section>
+      <section className="grid">{filtered.map(p => <article className="card" key={p.id}><div className="tag">{p.category}</div><h3>{p.code}</h3><p>{lang === 'it' ? p.description_it : p.description_en}</p><div className="row"><span>{t.available}</span><b>{currency(p.price)} €/mt</b></div>{p.datasheet ? <a className="outline" href={datasheetHref(p.datasheet)} target="_blank">{t.datasheet}</a> : <button className="outline" disabled>{t.noDatasheet}</button>}</article>)}</section>
     </main>}
 
     {view === 'admin' && <main>
