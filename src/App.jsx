@@ -58,7 +58,7 @@ export default function App() {
   const visibleProducts = useMemo(() => products.filter(p => p.visible !== false && p.available !== false), [products])
   const filtered = useMemo(() => visibleProducts.filter(p => {
     const text = `${p.code} ${p.description_it} ${p.description_en} ${p.category}`.toLowerCase()
-    return (cat === 'all' || p.category === cat) && text.includes(query.toLowerCase())
+    return (cat === 'all' || String(p.category).toLowerCase() === cat.toLowerCase()) && text.includes(query.toLowerCase())
   }), [visibleProducts, query, cat])
 
   function updateForm(key, value) { setForm(prev => ({ ...prev, [key]: value })) }
