@@ -31,7 +31,7 @@ const i18n = {
 }
 
 const emptyForm = { id: '', code: '', category: 'energia', price: '', datasheet: '', description_it: '', description_en: '', available: true, visible: true }
-const categories = ['energia', 'segnale', 'allarme', 'audio', 'telefono', 'dati', 'automazione', 'solare']
+const categories = ['energia', 'segnale', 'allarme', 'audio', 'telefonico', 'dati', 'automazione', 'solare']
 
 function currency(value) {
   const n = Number(value || 0)
