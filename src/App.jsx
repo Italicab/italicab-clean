@@ -99,7 +99,12 @@ export default function App() {
 
     {view === 'catalogue' && <main>
       <section className="hero">
-        <div><h1>{t.title}</h1><p>{t.subtitle}</p><a className="primary" href="mailto:info@italicab.it">{t.request}</a></div>
+        <div>
+  <h1>{t.title}</h1>
+  <p>{t.subtitle}</p>
+  <a className="primary" href="mailto:info@italicab.it">{t.request}</a>
+  <a className="primary" href="/datasheets/ITALICAB-catalogue.pdf" target="_blank">Apri Catalogo PDF</a>
+</div>
         <div className="contact"><b>ITALICAB</b><span>info@italicab.it</span><span>Tel. +39 030 6365625</span><span>Fax +39 030 6364819</span><span>Corso Cavour, 31 - 25121 Brescia</span></div>
       </section>
       <section className="filters"><input placeholder={t.search} value={query} onChange={e => setQuery(e.target.value)} /><select value={cat} onChange={e => setCat(e.target.value)}><option value="all">{t.all}</option>{categories.map(c => <option key={c} value={c}>{c}</option>)}</select></section>
