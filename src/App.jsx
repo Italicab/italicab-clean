@@ -13,7 +13,7 @@ const DEFAULT_PRODUCTS = [
 
 const i18n = {
   it: {
-    catalogue: 'Catalogo', admin: 'Area Admin', login: 'Entra', logout: 'Esci', password: 'Password admin', passHint: 'Password demo: admin',
+    catalogue: 'Prodotti', admin: 'Area Admin', login: 'Entra', logout: 'Esci', password: 'Password admin', passHint: 'Password demo: admin',
     title: 'Cavi elettrici disponibili a magazzino', subtitle: 'Catalogo ITALICAB con prezzi visibili, schede tecniche e prodotti disponibili.',
     search: 'Cerca codice o descrizione...', all: 'Tutte', available: 'Disponibile', price: 'Prezzo', datasheet: 'Scheda tecnica', noDatasheet: 'Nessuna scheda', request: 'Richiedi informazioni',
     code: 'Codice', category: 'Categoria', descIt: 'Descrizione IT', descEn: 'Descrizione EN', save: 'Salva prodotto', update: 'Aggiorna prodotto', cancel: 'Annulla', edit: 'Modifica', del: 'Elimina', hide: 'Nascondi', show: 'Mostra',
