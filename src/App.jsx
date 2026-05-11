@@ -13,23 +13,92 @@ const DEFAULT_PRODUCTS = [
 
 const i18n = {
   it: {
-    pdfCatalogue: 'Catalogo', catalogue: 'Prodotti', admin: 'Area Admin', login: 'Entra', logout: 'Esci', password: 'Password admin', passHint: 'Password demo: admin',
-    title: 'Cavi elettrici disponibili a magazzino', subtitle: 'Catalogo ITALICAB con prezzi visibili, schede tecniche e prodotti disponibili.',
-    search: 'Cerca codice o descrizione...', all: 'Tutte', available: 'Disponibile', price: 'Prezzo', datasheet: 'Scheda tecnica', noDatasheet: 'Nessuna scheda', request: 'Richiedi informazioni',
-    code: 'Codice', category: 'Categoria', descIt: 'Descrizione IT', descEn: 'Descrizione EN', save: 'Salva prodotto', update: 'Aggiorna prodotto', cancel: 'Annulla', edit: 'Modifica', del: 'Elimina', hide: 'Nascondi', show: 'Mostra',
-    addTitle: 'Aggiungi / modifica articolo', products: 'Gestione prodotti', export: 'Esporta catalogo JSON', import: 'Importa catalogo JSON', uploadName: 'Nome file scheda tecnica PDF',
-    note: 'Versione semplice senza database: i dati restano nel browser e possono essere esportati/importati con JSON. Per PDF permanenti, carica i file nella cartella public/datasheets del progetto.'
+    pdfCatalogue: 'Catalogo',
+    catalogue: 'Prodotti',
+    categories: {
+      energia: 'Energia',
+      segnale: 'Segnale',
+      allarme: 'Allarme',
+      audio: 'Audio',
+      telefonico: 'Telefonico',
+      controllo: 'Controllo'
+    },
+    admin: 'Area Admin',
+    login: 'Entra',
+    logout: 'Esci',
+    password: 'Password admin',
+    passHint: 'Password demo: admin',
+    title: 'Cavi elettrici disponibili a magazzino',
+    subtitle: 'Catalogo ITALICAB con prezzi visibili, schede tecniche e prodotti disponibili.',
+    search: 'Cerca codice o descrizione...',
+    all: 'Tutte',
+    available: 'Disponibile',
+    price: 'Prezzo',
+    datasheet: 'Scheda tecnica',
+    noDatasheet: 'Nessuna scheda',
+    request: 'Richiedi informazioni',
+    code: 'Codice',
+    category: 'Categoria',
+    descIt: 'Descrizione IT',
+    descEn: 'Descrizione EN',
+    save: 'Salva prodotto',
+    update: 'Aggiorna prodotto',
+    cancel: 'Annulla',
+    edit: 'Modifica',
+    del: 'Elimina',
+    hide: 'Nascondi',
+    show: 'Mostra',
+    addTitle: 'Aggiungi / modifica articolo',
+    products: 'Gestione prodotti',
+    export: 'Esporta catalogo JSON',
+    import: 'Importa catalogo JSON',
+    uploadName: 'Nome file scheda tecnica PDF',
+    note: 'Versione semplice senza database: i dati vengono caricati dal catalogo online.'
   },
   en: {
-    pdfCatalogue: 'Catalogue', catalogue: 'Products', admin: 'Admin Area', login: 'Login', logout: 'Logout', password: 'Admin password', passHint: 'Demo password: admin',
-    title: 'Electrical cables available from stock', subtitle: 'ITALICAB catalogue with visible prices, datasheets and available products.',
-    search: 'Search code or description...', all: 'All', available: 'Available', price: 'Price', datasheet: 'Datasheet', noDatasheet: 'No datasheet', request: 'Request information',
-    code: 'Code', category: 'Category', descIt: 'Description IT', descEn: 'Description EN', save: 'Save product', update: 'Update product', cancel: 'Cancel', edit: 'Edit', del: 'Delete', hide: 'Hide', show: 'Show',
-    addTitle: 'Add / edit item', products: 'Product management', export: 'Export catalogue JSON', import: 'Import catalogue JSON', uploadName: 'PDF datasheet file name',
-    note: 'Simple version without database: data stays in the browser and can be exported/imported as JSON. For permanent PDFs, upload files to the project public/datasheets folder.'
+    pdfCatalogue: 'Catalogue',
+    catalogue: 'Products',
+    categories: {
+      energia: 'Power',
+      segnale: 'Signal',
+      allarme: 'Alarm',
+      audio: 'Audio',
+      telefonico: 'Telephone',
+      controllo: 'Control'
+    },
+    admin: 'Admin Area',
+    login: 'Login',
+    logout: 'Logout',
+    password: 'Admin password',
+    passHint: 'Demo password: admin',
+    title: 'Electrical cables available from stock',
+    subtitle: 'ITALICAB catalogue with visible prices, datasheets and available products.',
+    search: 'Search code or description...',
+    all: 'All',
+    available: 'Available',
+    price: 'Price',
+    datasheet: 'Datasheet',
+    noDatasheet: 'No datasheet',
+    request: 'Request information',
+    code: 'Code',
+    category: 'Category',
+    descIt: 'Description IT',
+    descEn: 'Description EN',
+    save: 'Save product',
+    update: 'Update product',
+    cancel: 'Cancel',
+    edit: 'Edit',
+    del: 'Delete',
+    hide: 'Hide',
+    show: 'Show',
+    addTitle: 'Add / edit item',
+    products: 'Product management',
+    export: 'Export catalogue JSON',
+    import: 'Import catalogue JSON',
+    uploadName: 'PDF datasheet file name',
+    note: 'Simple version without database: data is loaded from the online catalogue.'
   }
 }
-
 const emptyForm = { id: '', code: '', category: 'energia', price: '', datasheet: '', description_it: '', description_en: '', available: true, visible: true }
 const categories = ['energia', 'segnale', 'allarme', 'audio', 'telefonico', 'dati', 'automazione', 'solare']
 
@@ -109,8 +178,8 @@ export default function App() {
 </div>
         <div className="contact"><b>ITALICAB</b><span>info@italicab.it</span><span>Tel. +39 030 6365625</span><span>Fax +39 030 6364819</span><span>Corso Cavour, 31 - 25121 Brescia</span></div>
       </section>
-      <section className="filters"><input placeholder={t.search} value={query} onChange={e => setQuery(e.target.value)} /><select value={cat} onChange={e => setCat(e.target.value)}><option value="all">{t.all}</option>{categories.map(c => <option key={c} value={c}>{c}</option>)}</select></section>
-      <section className="grid">{filtered.map(p => <article className="card" key={p.id}><div className="tag">{p.category}</div><h3>{p.code}</h3><p>{lang === 'it' ? p.description_it : p.description_en}</p><div className="row"><span>{t.available}: {p.quantity ? `${p.quantity} mt` : 'Su richiesta'}</span><b>{currency(p.price)} €/mt</b></div>{p.datasheet ? <a className="outline" href={datasheetHref(p.datasheet)} target="_blank">{t.datasheet}</a> : <button className="outline" disabled>{t.noDatasheet}</button>}</article>)}</section>
+      <section className="filters"><input placeholder={t.search} value={query} onChange={e => setQuery(e.target.value)} /><select value={cat} onChange={e => setCat(e.target.value)}><option value="all">{t.all}</option>{categories.map(c => <option key={c} value={c}>{t.categories?.[c] || c}</option>)}</select></section>
+      <section className="grid">{filtered.map(p => <article className="card" key={p.id}><div className="tag">{t.categories?.[p.category] || p.category}</div><h3>{p.code}</h3><p>{lang === 'it' ? p.description_it : p.description_en}</p><div className="row"><span>{t.available}: {p.quantity ? `${p.quantity} mt` : 'Su richiesta'}</span><b>{currency(p.price)} €/mt</b></div>{p.datasheet ? <a className="outline" href={datasheetHref(p.datasheet)} target="_blank">{t.datasheet}</a> : <button className="outline" disabled>{t.noDatasheet}</button>}</article>)}</section>
     </main>}
 
     {view === 'admin' && <main>
