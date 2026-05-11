@@ -45,15 +45,17 @@ export default function App() {
   const [password, setPassword] = useState('')
   const [query, setQuery] = useState('')
   const [cat, setCat] = useState('all')
-  const [products, setProducts] = useState(() => {
-    const saved = localStorage.getItem('italicab-products')
-    return saved ? JSON.parse(saved) : DEFAULT_PRODUCTS
-  })
+ const [products, setProducts] = useState(DEFAULT_PRODUCTS)
   const [form, setForm] = useState(emptyForm)
   const fileInput = useRef(null)
   const t = i18n[lang]
 
-  useEffect(() => localStorage.setItem('italicab-products', JSON.stringify(products)), [products])
+ useEffect(() => {
+  fetch('/catalog.json?v=' + Date.now())
+    .then(res => res.json())
+    .then(data => setProducts(data))
+    .catch(() => console.log('Catalogo online non disponibile'))
+}, [])
 
   const visibleProducts = useMemo(() => products.filter(p => p.visible !== false && p.available !== false), [products])
   const filtered = useMemo(() => visibleProducts.filter(p => {
